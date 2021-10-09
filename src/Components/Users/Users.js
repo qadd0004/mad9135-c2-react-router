@@ -29,7 +29,7 @@ export default function Users (props) {
     //all useEffect functions run on the initial render of the component
     console.log('useEffect was called.');
     fetchData();
-  }, []); //here we are monitoring for changes to `name`
+  }, []);
 
   return (
     <div className='users'>
