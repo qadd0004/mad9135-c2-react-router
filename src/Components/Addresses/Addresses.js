@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Route, NavLink } from 'react-router-dom';
-import User from '../User/User';
+//import { Route, NavLink } from 'react-router-dom';
+//import User from '../User/User';
 import './addresses.css';
 
 export default function Users (props) {
@@ -20,10 +20,10 @@ export default function Users (props) {
     //if something needs to be re-rendered
   }
 
-  function findUser (id) {
-    return list.find((item, index) => parseInt(id) === index + 1);
-    //return an object for the single user
-  }
+  //   function findUser (id) {
+  //     return list.find((item, index) => parseInt(id) === index + 1);
+  //     //return an object for the single user
+  //   }
 
   useEffect(() => {
     //all useEffect functions run on the initial render of the component
@@ -32,33 +32,35 @@ export default function Users (props) {
   }, []); //here we are monitoring for changes to `name`
 
   return (
-    <div className='users'>
-      <div className='user-list'>
-        {/* user detail:
+    <table className='users-address'>
+      {/* user detail:
 full address(street, city, state, postcode,
 login info(uuid, username, password))
 large image */}
+      <tr>
+        <th>User Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State/Province</th>
+        <th>Country</th>
+        <th>Postal Code</th>
+      </tr>
 
-        {/* {list.length === 0 && <p>There are no users yet</p>} */}
-        {list.map((item, index) => (
-          <p key={item.name}>
-            <span>
-              `{item.location.street.number} {item.location.street.name}`
-            </span>
-            <br />
-          </p>
-        ))}
-      </div>
-
-      <div className='user-details'>
-        <Route path='/users/:id'>
-          <User findUser={findUser} />
-        </Route>
-      </div>
-    </div>
+      {/* {list.length === 0 && <p>There are no users yet</p>} */}
+      {list.map((item, index) => (
+        <tr className='row' key={item.name}>
+          <td>
+            {item.name.first} {item.name.last}
+          </td>
+          <td>
+            {item.location.street.number} {item.location.street.name}
+          </td>
+          <td>{item.location.city}</td>
+          <td>{item.location.state}</td>
+          <td>{item.location.country}</td>
+          <td>{item.location.postcode}</td>
+        </tr>
+      ))}
+    </table>
   );
 }
-//logical short-circuiting
-// value && object
-//if value is true then the object is rendered
-//if value is false then the object is NOT rendered

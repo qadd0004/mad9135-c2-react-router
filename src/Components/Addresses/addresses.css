@@ -1,0 +1,38 @@
+.App {
+  padding: 1rem;
+  font-size: calc(5px + 2vmin);
+}
+
+header {
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid yellow;
+}
+
+.users-address {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.users-address td,
+.users-address th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.users-address tr:nth-child(even) {
+  background-color: rgba(221, 221, 221, 0.582);
+}
+
+.users-address tr:hover {
+  background-color: orange;
+  color: #333;
+}
+
+.users-address th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+}
