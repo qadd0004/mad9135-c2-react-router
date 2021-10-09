@@ -11,7 +11,7 @@ export default function Users (props) {
 
   async function fetchData () {
     let url =
-      'https://randomuser.me/api/?seed=qadd0004&results=18&nat=au,ca,nz,gb,us';
+      'https://randomuser.me/api/?seed=qadd0004&results=32&nat=au,ca,nz,gb,us';
     let resp = await fetch(url);
     let data = await resp.json();
     console.log(data.results);
@@ -36,19 +36,23 @@ export default function Users (props) {
       <div className='user-list'>
         {list.length === 0 && <p>There are no users yet</p>}
         {list.map((item, index) => (
-          <p key={item.name}>
-            <NavLink
-              to={`/users/${index + 1}`}
-            >{`${item.name.first} ${item.name.last}`}</NavLink>
-            <span>{item.address}</span>
-          </p>
+          <NavLink to={`/users/${index + 1}`} className='card' key={item.name}>
+            <img
+              className='picture'
+              src={item.picture.large}
+              alt={`${item.name.first} ${item.name.last}`}
+            />
+            <p className='name'>{`${item.name.first} ${item.name.last}`}</p>
+            <p className='email'>{item.email}</p>
+            <p className='cell'>Cell Phone: {item.cell}</p>
+          </NavLink>
         ))}
-      </div>
 
-      <div className='user-details'>
-        <Route path='/users/:id'>
-          <User findUser={findUser} />
-        </Route>
+        <div className='user-details'>
+          <Route path='/users/:id'>
+            <User findUser={findUser} />
+          </Route>
+        </div>
       </div>
     </div>
   );
