@@ -7,7 +7,7 @@ export default function Users (props) {
 
   async function fetchData () {
     let url =
-      'https://randomuser.me/api/?seed=qadd0004&results=18&nat=au,ca,nz,gb,us';
+      'https://randomuser.me/api/?seed=qadd0004&results=32&nat=au,ca,nz,gb,us';
     let resp = await fetch(url);
     let data = await resp.json();
     console.log(data.results);
