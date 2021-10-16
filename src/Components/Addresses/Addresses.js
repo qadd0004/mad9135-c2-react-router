@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import TableRow from '../TableRow/TableRow';
+import User from '../User/User';
 import './addresses.css';
 
 export default function Users (props) {
@@ -18,21 +20,33 @@ export default function Users (props) {
     fetchData();
   }, []);
 
+  function findUser (id) {
+    return list.find((item, index) => parseInt(id) === index + 1);
+  }
+
   return (
-    <table className='users-address'>
-      <thead>
-        <tr>
-          <th>User Name</th>
-          <th>Street</th>
-          <th>City</th>
-          <th>State/Province</th>
-          <th>Country</th>
-          <th>Postal Code</th>
-        </tr>
-      </thead>
-      <tbody>
-        <TableRow users={list} />
-      </tbody>
-    </table>
+    <>
+      <table className='users-address'>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State/Province</th>
+            <th>Country</th>
+            <th>Postal Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <TableRow users={list} findUser={findUser} />
+        </tbody>
+      </table>
+      <div className='user-details'>
+        <Route exact path='/users/:id'>
+          <User findUser={findUser} />
+        </Route>
+      </div>
+      ;
+    </>
   );
 }

@@ -36,7 +36,7 @@ export default function Users (props) {
       <div className='user-list'>
         {list.length === 0 && <p>There are no users yet</p>}
         {list.map((item, index) => (
-          <NavLink to={`/users/${index + 1}`} className='card' key={item.name}>
+          <NavLink to={`/users/${index + 1}`} className='card' key={index}>
             <img
               className='picture'
               src={item.picture.large}
@@ -49,7 +49,7 @@ export default function Users (props) {
         ))}
 
         <div className='user-details'>
-          <Route path='/users/:id'>
+          <Route exact path='/users/:id'>
             <User findUser={findUser} />
           </Route>
         </div>
