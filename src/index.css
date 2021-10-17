@@ -7,7 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.animation {
+  font-size: calc(10px + 2vw);
+  visibility: hidden;
+  animation-name: load;
+  animation-duration: 0.05s;
+}
+
+@keyframes load {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
 }

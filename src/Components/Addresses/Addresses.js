@@ -9,6 +9,7 @@ export default function Addresses (props) {
 
   return (
     <>
+      <div className='animation'>Loading</div>
       <table className='users-address'>
         <thead>
           <tr>

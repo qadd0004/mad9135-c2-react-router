@@ -5,7 +5,7 @@
   grid-row: auto;
   grid-gap: 1rem;
   margin: 1rem auto;
-  color: #333;
+  color: rgb(161, 152, 152);
 }
 
 .card {
