@@ -1,28 +1,11 @@
-import { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import TableRow from '../TableRow/TableRow';
 import User from '../User/User';
 import './addresses.css';
 
-export default function Users (props) {
-  const [list, setList] = useState([]);
-
-  async function fetchData () {
-    let url =
-      'https://randomuser.me/api/?seed=qadd0004&results=32&nat=au,ca,nz,gb,us';
-    let resp = await fetch(url);
-    let data = await resp.json();
-    console.log(data.results);
-    setList(data.results);
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  function findUser (id) {
-    return list.find((item, index) => parseInt(id) === index + 1);
-  }
+export default function Addresses (props) {
+  let list = props.list;
+  let findUser = props.findUser;
 
   return (
     <>

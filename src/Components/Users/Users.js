@@ -1,35 +1,10 @@
-import { useState, useEffect } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import User from '../User/User';
 import './users.css';
 
 export default function Users (props) {
-  const [list, setList] = useState([]);
-  //hooks return 2 things - variable, function to change the variable
-  //useState - for creating and updating variables inside state
-  //useEffect - for the rendering lifecycle
-
-  async function fetchData () {
-    let url =
-      'https://randomuser.me/api/?seed=qadd0004&results=32&nat=au,ca,nz,gb,us';
-    let resp = await fetch(url);
-    let data = await resp.json();
-    console.log(data.results);
-    setList(data.results); //new array being put into `list`
-    //changing a state variable tells react to look and see
-    //if something needs to be re-rendered
-  }
-
-  function findUser (id) {
-    return list.find((item, index) => parseInt(id) === index + 1);
-    //return an object for the single user
-  }
-
-  useEffect(() => {
-    //all useEffect functions run on the initial render of the component
-    console.log('useEffect was called.');
-    fetchData();
-  }, []);
+  let list = props.list;
+  let findUser = props.findUser;
 
   return (
     <div className='users'>
