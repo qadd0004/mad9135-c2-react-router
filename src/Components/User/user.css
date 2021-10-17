@@ -1,5 +1,29 @@
- {
-  /*
-login info(uuid, username, password))
-large image */
+.cardDetail {
+  width: 40vw;
+  height: fit-content;
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px grey;
+  margin: 1rem auto;
+  overflow: hidden;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.item {
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  color: rgb(0, 0, 0);
+}
+
+.pictureD {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: contrast(110%);
+  padding-bottom: 0.25rem;
 }

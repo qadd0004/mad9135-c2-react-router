@@ -1,6 +1,3 @@
-//import PropTypes from 'prop-types';
-//used to be part of react... now its own module
-
 export default function Home (props) {
   return (
     <div className='home'>

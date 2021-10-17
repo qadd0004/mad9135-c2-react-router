@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import User from '../User/User';
 import Home from '../Home/Home';
 import Users from '../Users/Users';
@@ -14,13 +14,10 @@ export default function Main (props) {
       'https://randomuser.me/api/?seed=qadd0004&results=32&nat=au,ca,nz,gb,us';
     let resp = await fetch(url);
     let data = await resp.json();
-    console.log(data.results);
     setList(data.results);
   }
 
   useEffect(() => {
-    //all useEffect functions run on the initial render of the component
-    console.log('useEffect was called.');
     fetchData();
   }, []);
 
@@ -29,9 +26,7 @@ export default function Main (props) {
       <Switch>
         <Route exact path='/users/:id'>
           <User list={list} />
-          {/* User is passed prop with fetch results */}
         </Route>
-        ;
         <Route exact path='/users'>
           <Users list={list} />
         </Route>

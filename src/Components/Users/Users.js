@@ -32,7 +32,3 @@ export default function Users (props) {
     </div>
   );
 }
-//logical short-circuiting
-// value && object
-//if value is true then the object is rendered
-//if value is false then the object is NOT rendered
