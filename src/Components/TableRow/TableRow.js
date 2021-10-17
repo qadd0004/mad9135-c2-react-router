@@ -27,7 +27,7 @@ export default function TableRow (props) {
   return usersSorted.map((item, index) => (
     <tr className='row' key={index}>
       <td>
-        <NavLink to={`/users/${index + 1}`}>
+        <NavLink className='addressLink' to={`/users/${index + 1}`}>
           {item.name.first} {item.name.last}
         </NavLink>
       </td>

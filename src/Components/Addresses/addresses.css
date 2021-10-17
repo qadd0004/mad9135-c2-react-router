@@ -36,3 +36,7 @@ header {
   text-align: left;
   background-color: #04aa6d;
 }
+
+.addressLink:hover {
+  color: #333;
+}
